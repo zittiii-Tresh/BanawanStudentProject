@@ -50,6 +50,7 @@
             this.updateBTN = new DevExpress.XtraEditors.SimpleButton();
             this.deleteBTN = new DevExpress.XtraEditors.SimpleButton();
             this.clearBTN = new DevExpress.XtraEditors.SimpleButton();
+            this.loadBTN = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.idTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ageTE.Properties)).BeginInit();
@@ -114,6 +115,8 @@
             // 
             this.idTE.Location = new System.Drawing.Point(17, 25);
             this.idTE.Name = "idTE";
+            this.idTE.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.idTE.Properties.MaskSettings.Set("mask", "d");
             this.idTE.Size = new System.Drawing.Size(165, 34);
             this.idTE.TabIndex = 5;
             // 
@@ -128,9 +131,8 @@
             // 
             this.ageTE.Location = new System.Drawing.Point(400, 25);
             this.ageTE.Name = "ageTE";
-            this.ageTE.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
-            this.ageTE.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
-            this.ageTE.Properties.MaskSettings.Set("mask", "\\d+");
+            this.ageTE.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.ageTE.Properties.MaskSettings.Set("mask", "d");
             this.ageTE.Size = new System.Drawing.Size(165, 34);
             this.ageTE.TabIndex = 7;
             // 
@@ -143,6 +145,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.bdayDE.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.bdayDE.Properties.MaskSettings.Set("mask", "d");
             this.bdayDE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.bdayDE.Size = new System.Drawing.Size(165, 34);
             this.bdayDE.TabIndex = 8;
@@ -178,6 +181,8 @@
             // 
             // StudentID
             // 
+            this.StudentID.AppearanceCell.Options.UseTextOptions = true;
+            this.StudentID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.StudentID.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentID.AppearanceHeader.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.StudentID.AppearanceHeader.Options.UseFont = true;
@@ -267,7 +272,7 @@
             // createBTN
             // 
             this.createBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("createBTN.ImageOptions.SvgImage")));
-            this.createBTN.Location = new System.Drawing.Point(648, 88);
+            this.createBTN.Location = new System.Drawing.Point(553, 88);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(94, 37);
             this.createBTN.TabIndex = 11;
@@ -277,7 +282,7 @@
             // updateBTN
             // 
             this.updateBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("updateBTN.ImageOptions.SvgImage")));
-            this.updateBTN.Location = new System.Drawing.Point(748, 88);
+            this.updateBTN.Location = new System.Drawing.Point(653, 88);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(94, 37);
             this.updateBTN.TabIndex = 12;
@@ -287,7 +292,7 @@
             // deleteBTN
             // 
             this.deleteBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("deleteBTN.ImageOptions.SvgImage")));
-            this.deleteBTN.Location = new System.Drawing.Point(848, 88);
+            this.deleteBTN.Location = new System.Drawing.Point(753, 88);
             this.deleteBTN.Name = "deleteBTN";
             this.deleteBTN.Size = new System.Drawing.Size(94, 37);
             this.deleteBTN.TabIndex = 13;
@@ -296,13 +301,23 @@
             // 
             // clearBTN
             // 
-            this.clearBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.clearBTN.Location = new System.Drawing.Point(548, 88);
+            this.clearBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("clearBTN.ImageOptions.SvgImage")));
+            this.clearBTN.Location = new System.Drawing.Point(453, 88);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(94, 37);
             this.clearBTN.TabIndex = 14;
             this.clearBTN.Text = "Clear";
             this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
+            // 
+            // loadBTN
+            // 
+            this.loadBTN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("loadBTN.ImageOptions.SvgImage")));
+            this.loadBTN.Location = new System.Drawing.Point(853, 88);
+            this.loadBTN.Name = "loadBTN";
+            this.loadBTN.Size = new System.Drawing.Size(94, 37);
+            this.loadBTN.TabIndex = 15;
+            this.loadBTN.Text = "Load";
+            this.loadBTN.Click += new System.EventHandler(this.loadBTN_Click);
             // 
             // StudentForm
             // 
@@ -311,6 +326,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 527);
+            this.Controls.Add(this.loadBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.updateBTN);
@@ -365,6 +381,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn StudentBirthday;
         private DevExpress.XtraGrid.Columns.GridColumn YearSection;
         private DevExpress.XtraEditors.SimpleButton clearBTN;
+        private DevExpress.XtraEditors.SimpleButton loadBTN;
     }
 }
 
